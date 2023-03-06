@@ -43,7 +43,7 @@ class RadioTest {
     }
 
     @Test
-    void setCurrentRadioUndoZero() {
+    void setCurrentRadioUnderZero() {
         Radio station = new Radio();
 
         station.setCurrentRadio(-1);
@@ -69,7 +69,7 @@ class RadioTest {
     }
 
     @Test
-    void nextRadioUndoNineStation() {
+    void nextRadioUnderNineStation() {
         Radio station = new Radio();
         station.setCurrentRadio(8);
 
@@ -95,7 +95,7 @@ class RadioTest {
     }
 
     @Test
-    void prevRadioUndoZeroStation() {
+    void prevRadioUnderZeroStation() {
         Radio station = new Radio();
         station.setCurrentRadio(0);
 
@@ -107,6 +107,49 @@ class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    @Test
+    void setVolumeAboveHundred() {
+        Radio volume = new Radio();
+        volume.setToMaxVolume();
+
+        volume.increaseVolume();
+
+        int expected = 100;
+        int actual = volume.getCurrentVolume();
+    }
+
+    @Test
+    void setVolumeUnderZero() {
+        Radio volume = new Radio();
+        volume.setToMinVolume();
+
+        volume.reduceVolume();
+
+        int expected = 0;
+        int actual = volume.getCurrentVolume();
+    }
+
+    @Test
+    void setVolumeBetweenZeroAndHundredIncreaseVolume() {
+        Radio volume = new Radio();
+        volume.setToMinVolume();
+
+        volume.increaseVolume();
+
+        int expected = 1;
+        int actual = volume.getCurrentVolume();
+    }
+
+    @Test
+    void setVolumeBetweenZeroAndHundredReduceVolume() {
+        Radio volume = new Radio();
+        volume.setToMaxVolume();
+
+        volume.reduceVolume();
+
+        int expected = 99;
+        int actual = volume.getCurrentVolume();
+    }
 
 
 }
