@@ -6,10 +6,10 @@ public class Radio {
     private int numberStation;
 
     public Radio() {
-        numberStation = 10;
+        numberStation = 10; // установка количества радиостанций по умолчанию
     }
 
-    public Radio(int numberStation){
+    public Radio(int numberStation) {
 
     }
 
@@ -37,7 +37,7 @@ public class Radio {
         }
     }
 
-    public void setCurrentRadio(int newCurrentRadio) {
+    public void setCurrentRadio(int newCurrentRadio, int numberStation) {
         if (newCurrentRadio < 0) {
             return;
         }

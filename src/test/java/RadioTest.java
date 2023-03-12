@@ -7,7 +7,7 @@ class RadioTest {
     void setCurrentRadioLimitValueZero() {
         Radio station = new Radio();
 
-        station.setCurrentRadio(0);
+        station.setCurrentRadio(0, 10);
 
         int expected = 0;
         int actual = station.getCurrentRadio();
@@ -20,7 +20,7 @@ class RadioTest {
     void setCurrentRadiolimitValueNine() {
         Radio station = new Radio();
 
-        station.setCurrentRadio(9);
+        station.setCurrentRadio(9, 10);
 
         int expected = 9;
         int actual = station.getCurrentRadio();
@@ -33,7 +33,7 @@ class RadioTest {
     void setCurrentRadioOverNine() {
         Radio station = new Radio();
 
-        station.setCurrentRadio(10);
+        station.setCurrentRadio(10, 10);
 
         int expected = 0;
         int actual = station.getCurrentRadio();
@@ -46,7 +46,7 @@ class RadioTest {
     void setCurrentRadioUnderZero() {
         Radio station = new Radio();
 
-        station.setCurrentRadio(-1);
+        station.setCurrentRadio(-1, 10);
 
         int expected = 0;
         int actual = station.getCurrentRadio();
@@ -58,7 +58,7 @@ class RadioTest {
     @Test
     void nextRadioAfterNineStation() {
         Radio station = new Radio();
-        station.setCurrentRadio(9);
+        station.setCurrentRadio(9, 10);
 
         station.next();
 
@@ -71,7 +71,7 @@ class RadioTest {
     @Test
     void nextRadioUnderNineStation() {
         Radio station = new Radio();
-        station.setCurrentRadio(8);
+        station.setCurrentRadio(8, 10);
 
         station.next();
 
@@ -84,7 +84,7 @@ class RadioTest {
     @Test
     void prevRadioAfterZeroStation() {
         Radio station = new Radio();
-        station.setCurrentRadio(1);
+        station.setCurrentRadio(1, 10);
 
         station.prev();
 
@@ -97,7 +97,7 @@ class RadioTest {
     @Test
     void prevRadioUnderZeroStation() {
         Radio station = new Radio();
-        station.setCurrentRadio(0);
+        station.setCurrentRadio(0, 10);
 
         station.prev();
 
@@ -152,17 +152,19 @@ class RadioTest {
     }
 
     @Test
-    void setNumberStationNotByDefault() {
+    void setNumberStation() {
         Radio station = new Radio(20);
 
-        station.setCurrentRadio(0);
+        station.setCurrentRadio(15, 20);
 
         int expected = 0;
         int actual = station.getCurrentRadio();
 
         Assertions.assertEquals(expected, actual);
-        }
     }
+
+
+}
 
 
 
