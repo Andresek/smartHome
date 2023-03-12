@@ -151,5 +151,18 @@ class RadioTest {
         int actual = volume.getCurrentVolume();
     }
 
+    @Test
+    void setNumberStationNotByDefault() {
+        Radio station = new Radio(20);
 
-}
+        station.setCurrentRadio(0);
+
+        int expected = 0;
+        int actual = station.getCurrentRadio();
+
+        Assertions.assertEquals(expected, actual);
+        }
+    }
+
+
+
