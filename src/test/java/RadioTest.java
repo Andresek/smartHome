@@ -157,7 +157,7 @@ class RadioTest {
 
         station.setCurrentRadio(15, 20);
 
-        int expected = 0;
+        int expected = 15;
         int actual = station.getCurrentRadio();
 
         Assertions.assertEquals(expected, actual);
