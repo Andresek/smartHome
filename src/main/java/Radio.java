@@ -2,7 +2,6 @@
 public class Radio {
     private int currentRadio;
     private int currentVolume;
-
     private int numberStation;
 
     public Radio() {
@@ -10,14 +9,17 @@ public class Radio {
     }
 
     public Radio(int numberStation) {
+        this.numberStation = numberStation;
 
     }
 
     public int getCurrentVolume() {
+
         return currentVolume;
     }
 
     public int getCurrentRadio() {
+
         return currentRadio;
     }
 
@@ -37,7 +39,7 @@ public class Radio {
         }
     }
 
-    public void setCurrentRadio(int newCurrentRadio, int numberStation) {
+    public void setCurrentRadio(int newCurrentRadio) {
         if (newCurrentRadio < 0) {
             return;
         }
