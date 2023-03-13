@@ -17,7 +17,7 @@ class RadioTest {
     }
 
     @Test
-    void setCurrentRadiolimitValueNine() {
+    void setCurrentRadioLimitValueNine() {
         Radio station = new Radio();
 
         station.setCurrentRadio(9);
@@ -151,5 +151,20 @@ class RadioTest {
         int actual = volume.getCurrentVolume();
     }
 
+    @Test
+    void setNumberStation() {
+        Radio station = new Radio(20);
+
+        station.setCurrentRadio(15);
+
+        int expected = 15;
+        int actual = station.getCurrentRadio();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
 
 }
+
+
+

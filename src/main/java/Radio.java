@@ -2,33 +2,48 @@
 public class Radio {
     private int currentRadio;
     private int currentVolume;
+    private int numberStation;
+
+    public Radio() {
+        numberStation = 10; // установка количества радиостанций по умолчанию
+    }
+
+    public Radio(int numberStation) {
+        this.numberStation = numberStation;
+
+    }
 
     public int getCurrentVolume() {
+
         return currentVolume;
     }
 
-
     public int getCurrentRadio() {
+
         return currentRadio;
     }
 
     public void next() {
-        if (currentRadio == 9) {
+        if (currentRadio == numberStation - 1) {
             currentRadio = 0;
-        } else currentRadio = currentRadio + 1;
+        } else {
+            currentRadio = currentRadio + 1;
+        }
     }
 
     public void prev() {
         if (currentRadio == 0) {
-            currentRadio = 9;
-        } else currentRadio = currentRadio - 1;
+            currentRadio = numberStation - 1;
+        } else {
+            currentRadio = currentRadio - 1;
+        }
     }
 
     public void setCurrentRadio(int newCurrentRadio) {
         if (newCurrentRadio < 0) {
             return;
         }
-        if (newCurrentRadio > 9) {
+        if (newCurrentRadio > numberStation - 1) {
             return;
         }
         currentRadio = newCurrentRadio;
